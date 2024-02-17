@@ -52,10 +52,50 @@ function drawPoint() {
     const ellipseSize = getEllipseSize();
     ellipse(meteor.x, meteor.y, ellipseSize,ellipseSize);
 
-    const meteorIcon = loadImage("meteor.png");
+    // meteor icon
+    const meteorIconSize = 14; 
+    const meteorIconX = meteor.x; 
+    const meteorIconY = meteor.y; 
+    
+    // Orange triangle
+    push();
+    noStroke();
+    fill(255, 146, 72);
+    triangle(
+    meteorIconX - meteorIconSize / 2,
+    meteorIconY,
+    meteorIconX,
+    meteorIconY - meteorIconSize,
+    meteorIconX + meteorIconSize / 2,
+    meteorIconY);
+    pop();
+    
+    // Yellow triangle
+    push();
+    noStroke();
+    fill(255, 201, 5);
+    triangle(
+    meteorIconX - meteorIconSize / 4,
+    meteorIconY,
+    meteorIconX,
+    meteorIconY - meteorIconSize / 2,
+    meteorIconX + meteorIconSize / 4,
+    meteorIconY);
+    pop();
+    
+    // Orange ellipse
+    push();
+    noStroke();
+    fill(255, 146, 72);
+    ellipse(meteorIconX, meteorIconY, meteorIconSize, meteorIconSize);
+    pop();
 
-    imageMode(CENTER);
-    image(meteorIcon, meteor.x, meteor.y, 30,30)
+    // Brown ellipse
+    push();
+    noStroke();
+    fill(90, 77, 65);
+    ellipse(meteorIconX, meteorIconY, meteorIconSize-4, meteorIconSize-4);
+    pop();
 }
   </script>
 </body>
